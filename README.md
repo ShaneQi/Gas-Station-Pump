@@ -10,10 +10,28 @@ The mechanism the controls the flow of the gas through the nozzle is assumed to 
 
 **Deliverables**: The following deliverables are required for this project. All deliverables will be submitted on eLearning before midnight of the date listed, with the exception of the in-class demos:
 
-Date|Deliverables
---|--
-February 14|<ol><li>Domain Model</li><li>Use Case Diagram (UCD) with brief description for each use case</li><li>Prioritized list of Use Cases (UCs)</li></ol>
-February 28|<ol><li>Updated Deliverables</li><li>Main UC in fully dressed format</li><li>Supplementary Specification</li></ol>
-March 13|<ol><li>Updated Deliverables</li><li>System Sequence Diagram</li><li>Operation Contracts</li></ol>
-April 10|<ol><li>Updated Deliverables</li><li>Logical Architecture</li><li>Use Case Realizations</li><li>Design Class Diagram</li></ol>
-April 25 - 29|<ol><li>Demo for TA</li><ol>
+### Date & Deliverables
+
+#### February 14
+1. Domain Model
+2. Use Case Diagram (UCD) with brief description for each use case
+3. Prioritized list of Use Cases (UCs)
+
+#### February 28
+1. Updated Deliverables
+2. Main UC in fully dressed format
+3. Supplementary Specification
+
+#### March 13
+1. Updated Deliverables
+2. System Sequence Diagram
+3. Operation Contracts
+
+#### April 10
+1. Updated Deliverables
+2. Logical Architecture
+3. Use Case Realizations
+4. Design Class Diagram
+
+#### April 25 - 29
+- Demo for TA
