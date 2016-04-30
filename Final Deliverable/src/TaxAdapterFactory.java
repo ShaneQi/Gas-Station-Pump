@@ -11,7 +11,7 @@ public class TaxAdapterFactory {
 		if(AdapterName.equalsIgnoreCase("TaxAdapterA"))
 			return TaxAdapterA.getInstance();
 		if(AdapterName.equalsIgnoreCase("TaxAdapterB"))
-			return TaxAdapterA.getInstance();
+			return TaxAdapterB.getInstance();
 	return null;
 	}
 	

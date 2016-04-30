@@ -6,7 +6,7 @@ public class InventoryFactory {
 	}
 	
 	public IUpdateAmountListener getFuelIvetory(int fuelGradeID){
-		if(fuelGradeID==87)
+	if(fuelGradeID==87)
 			return Fuel87.getInstance();
 	if(fuelGradeID==89)
 		return  Fuel89.getInstance();

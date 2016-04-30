@@ -27,4 +27,11 @@ public class CashPayment implements IPayment {
 		return 0;
 	}
 
+
+	@Override
+	public void requestCharge(double amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

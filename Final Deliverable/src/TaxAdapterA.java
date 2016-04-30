@@ -12,6 +12,7 @@ public class TaxAdapterA implements ITaxCalculatorAdapter {
     private TaxAdapterA() {
     }
     private static TaxAdapterA instance = new TaxAdapterA();
+    
     public static TaxAdapterA getInstance(){
     	return instance;
     }

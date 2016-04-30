@@ -4,12 +4,12 @@ import java.util.*;
 /**
  * 
  */
-public class CreditCardAuthenticationCenter {
+public class DebitCardAuthenticationCenter {
 	Configuration myconfig=Configuration.getInstance();
     /**
      * Default constructor
      */
-    public CreditCardAuthenticationCenter() {
+    public DebitCardAuthenticationCenter() {
     }
 
 

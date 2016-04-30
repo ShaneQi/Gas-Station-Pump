@@ -3,21 +3,19 @@ public class PumpingTask implements Runnable {
 
 	GasPump myPump;
 	boolean status;
+	int interval;
 
 	
-	public PumpingTask(GasPump pump){
+	public PumpingTask(GasPump pump,int timeInterval){
 		myPump=pump;
-
+		interval=timeInterval;
 	}
 	
 	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		if(myPump.getQuota()<=0)
-			System.out.println("Gas Quota is insufficient!");
 		
-		while(myPump.getStatus() && myPump.getQuota()>0){
+	while(myPump.getStatus() && myPump.getQuota()>0 && interval>0){
 			
 			myPump.pumping();
 			try {
@@ -26,13 +24,14 @@ public class PumpingTask implements Runnable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			interval--;
 		}
-		if(myPump.getQuota()<=0)
-			System.out.println("Gas Quota is insufficient!");
 		
-	  
-		
+		if(myPump.getQuota()<=0){
+			myPump.reachQuota();
+		}
+
+
 	}
 
 	

@@ -47,14 +47,18 @@ public class CLI {
 						break;
 					case "start":
 						System.out.println("start pumping");
-						myregister.startPumping();
-						Thread.sleep(1000);
-						myregister.stopPumping();
+						int timeInterval=Integer.valueOf(userCommand[1]);
+						myregister.startPumping(timeInterval*100);
+				
 						System.out.println("input: retun");
 						break;
 					case "stop":
 						System.out.println("stop pumping");
 						myregister.stopPumping();
+						break;
+					case "inventory":
+						System.out.println("check inventory");
+						Fuel87.getInstance().getInventory();
 						break;
 					case "return":
 						

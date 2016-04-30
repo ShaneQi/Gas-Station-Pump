@@ -6,7 +6,7 @@ import java.util.*;
  */
 
 
-public class SalesLineItem implements IUpdateAmountListener {
+public class SalesLineItem  {
 	private static double price;
 	private static int grade;
 	private double Amount;
@@ -57,18 +57,13 @@ public class SalesLineItem implements IUpdateAmountListener {
         // TODO implement here
     }
 
-    /**
-     * @param Amount
-     */
-    public void getSubTotal(double Amount) {
-        // TODO implement here
-    }
 
     /**
      * @param Amount
      */
-    public void updateItemAmount(double Amt) {
+    public double updateAmount(double Amt) {
     	Amount=Amt;
+    	return Amt*price;
     	//System.out.println("SalesItem: The current pumped  gas total is "+Amt);
     }
 

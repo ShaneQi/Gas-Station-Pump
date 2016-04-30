@@ -10,6 +10,6 @@ import java.util.*;
 
     public double requestPreAuthorize(String cardNum, int expDate,int ZIPcode);
  
-    public void requestCharge();
+    public void requestCharge(double amount);
 
 }

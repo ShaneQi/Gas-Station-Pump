@@ -9,6 +9,7 @@ public class Sale {
 	 private int expireDate;
 	 IPayment myPayment;
 	 private TaxLineItem taxItem;
+	 private String TaxAdapter=Configuration.taxAdapter;
 	
 
     /**
@@ -51,9 +52,10 @@ public class Sale {
     }
     
     public void getTaxes() {
-        
+     
+     
    	 TaxAdapterFactory factory=TaxAdapterFactory.getInstance();
-   	 ITaxCalculatorAdapter adapter = factory.getAdapter("TaxAdapterA");
+   	 ITaxCalculatorAdapter adapter = factory.getAdapter(TaxAdapter);
    	 taxItem=adapter.getTaxes(lineItems);
 
    	
@@ -64,6 +66,8 @@ public class Sale {
      */
     public void endSale() {
         // TODO implement here
+    	myPayment.requestCharge(this.getTotal());
+    	
     }
 
 
@@ -82,6 +86,10 @@ public class Sale {
         return sum;
         
         
+    }
+    
+    public double updateAmount(double Amount){
+    	return lineItems.updateAmount(Amount);
     }
     
     public double getAmount(){

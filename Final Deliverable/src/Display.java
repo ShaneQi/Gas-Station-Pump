@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Display implements IUpdateAmountListener {
+public class Display {
 
 	private static Display instance = new Display();
 	
@@ -45,6 +45,13 @@ public class Display implements IUpdateAmountListener {
     	System.out.println("Please select the Grade Type:");
     }
 
+    public void reachQuota(double quota) {
+        
+    	  System.out.println("Gas Quota is insufficient");
+    }
+  
+    
+    
     /**
      * @param fuelGradeID
      */
@@ -73,8 +80,6 @@ public class Display implements IUpdateAmountListener {
     /**
      * @param Amount
      */
-    public void updateItemAmount(double Amount) {
-    	System.out.printf("Display: The current pumped total gas is: %.3f%n",Amount);
-    }
+
 
 }

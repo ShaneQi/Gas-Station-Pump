@@ -25,8 +25,23 @@ public class TaxAdapterB implements ITaxCalculatorAdapter {
 	        Register register = Register.getInstance();
 	        int zipcode = register.getStationZip();
 	        
-	    	double statePercentage=0.3;
-	    	double federalPercentage=0.2;
+	        double statePercentage;
+	        double federalPercentage;
+	        
+	        if(zipcode==75080){
+	        	 statePercentage=0.3;
+	        	 federalPercentage=0.2;
+	        }
+	        else if(zipcode==75000){
+	        	 statePercentage=0.6;
+	        	 federalPercentage=0.4;
+	        }
+	        else{
+	        	statePercentage=0.1;
+	        	 federalPercentage=0.1;
+	        }
+	        	
+	    	
 	    	TaxLineItem taxItem = new TaxLineItem(description,statePercentage,federalPercentage);
 	    	return taxItem;
 	    }

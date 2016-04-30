@@ -6,7 +6,7 @@ import java.util.*;
  */
 public class Fuel87 implements IFuelGradePrice,IUpdateAmountListener {
 
-	  private double inventory=Configuration.inventoryFuel87price;
+	 private double inventory=Configuration.inventoryFuel87price;
 	 private static  double unitPrice;
 	 private static Fuel87 instance = new Fuel87();
 	 public static Fuel87 getInstance(){
@@ -23,14 +23,16 @@ public class Fuel87 implements IFuelGradePrice,IUpdateAmountListener {
     /**
      * @param gasAmount
      */
-    public void updateAmount(double gasAmount) {
-        // TODO implement here
-    }
-	@Override
+
 	public void updateItemAmount(double Amount) {
 		
 		//System.out.println("Inventory: The current pumped pumped out is "+Amount);
 		inventory-=Amount;
+	}
+	
+	public double getInventory(){
+		System.out.println(inventory);
+		return inventory;
 	}
 
 

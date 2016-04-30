@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Register {
+public class Register implements IUpdateAmountListener{
 
 	
 	 private Sale newSale;
@@ -14,6 +14,7 @@ public class Register {
 	 private GasPump mypump;
 	 private GasStation mystation;
 	 private Printer myprinter;
+	 private InventoryFactory inventory;
 	 
 	 private static Register instance = new Register();
 	 
@@ -42,13 +43,18 @@ public class Register {
     }
 
     /**
+     * @throws InterruptedException 
      * 
      */
-    public void startPumping() {
+    public void startPumping(int value) throws InterruptedException {
         //use thread here
-    	mypump.arm();
+    	mypump.arm(value);
+    	
+
     	
     }
+    
+
     
     public int getStationZip(){
     	return mystation.zip;
@@ -67,9 +73,10 @@ public class Register {
         SalesLineItem newLineItem=newSale.makeLineItem();
     	newLineItem.init(unitPrice, fuelGradeID);
     	mypump=new GasPump();
-    	mypump.init(quota);
-    	mypump.addAmountListener(newLineItem);
-    	mypump.addAmountListener(mydisplay);
+    	mypump.init(quota/unitPrice);
+    	mypump.addAmountListener(this);
+    	inventory=InventoryFactory.getInstance();
+    	mypump.addAmountListener(inventory.getFuelIvetory(fuelGradeID));
     	
     	//pump add listener
     	
@@ -121,6 +128,14 @@ public class Register {
     	
     }
 
+    public void reachQuota(){
+    	
+    	mydisplay.reachQuota(quota);
+    	mypump.disArm();
+    	
+    }
+    
+    
     /**
      * @param zipCode
      */
@@ -134,6 +149,12 @@ public class Register {
     public void testquota(){
     	System.out.println(quota);
     }
+	@Override
+	public void updateItemAmount(double Amount) {
+		// TODO Auto-generated method stub
+		double totalPrice=newSale.updateAmount(Amount);
+		mydisplay.displayTotal(Amount, totalPrice);
+	}
     
    
 

@@ -11,6 +11,8 @@ public class Configuration {
 	public static double inventoryFuel89price=2000;
 	public static double inventoryFuel92price=2000;
 	
+	public static String taxAdapter="TaxAdapterB";
+	
 	
 	private static Configuration instance;
 	

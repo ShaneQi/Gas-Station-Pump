@@ -5,11 +5,12 @@ import java.util.*;
  * 
  */
 public class DebitCardpayment implements IPayment {
-
+	CreditCardAuthenticationCenter authCenter;
     /**
      * Default constructor
      */
     public DebitCardpayment() {
+    	authCenter=new CreditCardAuthenticationCenter();
     }
 
 
@@ -23,15 +24,20 @@ public class DebitCardpayment implements IPayment {
     /**
      * 
      */
-    public void requestCharge() {
-        // TODO implement here
-    }
+
 
 
 	@Override
 	public double requestPreAuthorize(String cardNum, int expDate, int ZIPcode) {
 		// TODO Auto-generated method stub
-		return 0;
+		return authCenter.requestPreAuthorize(cardNum, expDate, ZIPcode);	
+	}
+
+
+	@Override
+	public void requestCharge(double amount) {
+		// TODO Auto-generated method stub
+		authCenter.requestCharge(amount);
 	}
 
 

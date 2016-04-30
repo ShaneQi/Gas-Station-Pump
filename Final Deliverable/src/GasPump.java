@@ -9,7 +9,7 @@ public class GasPump   {
 	private List<IUpdateAmountListener> observers = new ArrayList<IUpdateAmountListener>();
 	private double totalAmount=0;
 	private boolean status=false;// true means pumping, false means stopping
-	private double quota=1.5;
+	private double quota;
 
     public void disArm() {
     	//change status
@@ -31,11 +31,11 @@ public class GasPump   {
     	
     }
     
-    public void arm() {
+    public void arm(int timeInterval) {
     	
     	status=true;
     	//initial thread
-    	PumpingTask task = new PumpingTask(this);
+    	PumpingTask task = new PumpingTask(this, timeInterval);	
     	Thread thread = new Thread(task);
     	thread.start();
     	
@@ -88,6 +88,11 @@ public class GasPump   {
 	public double getQuota() {
 		// TODO Auto-generated method stub
 		return quota;
+	}
+	
+	public void reachQuota(){
+		Register.getInstance().reachQuota();
+		
 	}
 
 

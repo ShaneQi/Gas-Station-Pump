@@ -25,7 +25,7 @@ public class GasStation {
     /**
      * 
      */
-    public static int zip=75080;
+    public static int zip=75000;
 
 
 }
